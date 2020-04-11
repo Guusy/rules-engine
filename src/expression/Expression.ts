@@ -7,7 +7,7 @@ interface Expression {
 
     evaluate(): boolean
 
-    init(data: any): void 
+    init(data: any): void
 }
 
 export default Expression

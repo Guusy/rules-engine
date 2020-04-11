@@ -7,7 +7,9 @@ export class FakeOperatorTrue implements Operator {
     evaluate(): boolean {
         return true
     }
-    initialize(value: any): void { }
+    initialize(value: any): void {
+        // empty
+     }
 
 }
 
@@ -18,7 +20,9 @@ export class FakeOperatorFalse implements Operator {
     evaluate(): boolean {
         return false
     }
-    initialize(value: any): void { }
+    initialize(value: any): void {
+        // empty
+     }
 
 }
 
