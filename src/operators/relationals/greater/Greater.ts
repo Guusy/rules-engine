@@ -1,27 +1,6 @@
+import RelationalOperator from '../RelationalOperator';
 
-import Operator from '../../../operator/Operator'
-
-interface GreaterConstructor {
-    expectedValue: any
-    accessor: (object: any) => any
-}
-
-class Greater implements Operator {
-    data: any
-    expressions: Operator[] = []
-    accessor: (object: any) => any
-    expectedValue: any;
-    currentValue: any;
-
-    constructor({ expectedValue, accessor }: GreaterConstructor) {
-        this.expectedValue = expectedValue
-        this.accessor = accessor
-    }
-
-    initialize(data: any) {
-        this.currentValue = this.accessor(data)
-        return this
-    }
+class Greater extends RelationalOperator {
 
     evaluate(): boolean {
         return this.currentValue > this.expectedValue
