@@ -1,18 +1,19 @@
 
 import Operator from '../../../operator/Operator'
 
-interface EqualsConstructor {
+interface GreaterConstructor {
     expectedValue: any
     accessor: (object: any) => any
 }
-class Equals implements Operator {
-    accessor!: (object: any) => any;
-    expressions!: Operator[];
-    data: any;
+
+class Greater implements Operator {
+    data: any
+    expressions: Operator[] = []
+    accessor: (object: any) => any
     expectedValue: any;
     currentValue: any;
 
-    constructor({ expectedValue, accessor }: EqualsConstructor) {
+    constructor({ expectedValue, accessor }: GreaterConstructor) {
         this.expectedValue = expectedValue
         this.accessor = accessor
     }
@@ -23,9 +24,9 @@ class Equals implements Operator {
     }
 
     evaluate(): boolean {
-        return this.expectedValue === this.currentValue
+        return this.currentValue > this.expectedValue
     }
 
 }
 
-export default Equals
+export default Greater
