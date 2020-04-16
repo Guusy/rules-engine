@@ -1,4 +1,4 @@
-import Operator from "src/operator/Operator";
+import Operator from '../operator/Operator'
 
 interface Expression {
     accessor: (smth: any) => any;

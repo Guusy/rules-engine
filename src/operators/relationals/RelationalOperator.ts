@@ -1,11 +1,11 @@
-import Operator from 'src/operator/Operator';
+import Operator from '../../operator/Operator';
 
 interface RelationalOperatorConstructor {
     expectedValue: any
     accessor: (object: any) => any
 }
 
-export default class RelationalOperator implements Operator {
+export default class RelationalOperator extends Operator {
     data: any;
     expressions: Operator[] = [];
     accessor: (object: any) => any;
@@ -13,13 +13,13 @@ export default class RelationalOperator implements Operator {
     currentValue: any;
 
     constructor({ expectedValue, accessor }: RelationalOperatorConstructor) {
+        super()
         this.expectedValue = expectedValue
         this.accessor = accessor
     }
 
-    initialize(data: any) {
+    doInitialize(data: any): void {
         this.currentValue = this.accessor(data)
-        return this
     }
 
     evaluate(): boolean {

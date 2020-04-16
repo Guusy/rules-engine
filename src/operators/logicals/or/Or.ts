@@ -1,21 +1,11 @@
-import Operator from 'src/operator/Operator'
+import LogicalOperator from '../LogicalOperator'
 
-class Or implements Operator {
-    accessor!: (object: any) => any
-    data: any
-    expressions!: Operator[]
-
-    constructor(expressions: Operator[]) {
-        this.expressions = expressions
-    }
-
-    initialize(data: any): void {
-        this.expressions.forEach(expression => expression.initialize(data))
-    }
+class Or extends LogicalOperator {
 
     evaluate() {
         return this.expressions.some(expression => expression.evaluate())
     }
+
 }
 
 export default Or
