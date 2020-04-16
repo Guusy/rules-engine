@@ -1,6 +1,7 @@
 
 
 import NotEquals from './NotEquals'
+import { OperatorTypes } from '../../../operator/Operator';
 
 describe('NotEquals operator', () => {
     const accessor = (object: any) => object.size
@@ -19,5 +20,18 @@ describe('NotEquals operator', () => {
         it('returns false', () => {
             expect(operator.evaluate()).toBe(false);
         });
+    });
+
+    describe('default values', () => {
+        const operator = new NotEquals({ expectedValue: 0 , accessor})
+
+        it('the name is  NotEquals', () => {
+            expect(operator.name).toEqual('NotEquals');
+        });
+
+        it('has RELATIONAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.RELATIONAL_OPERATOR);
+        });
+
     });
 });

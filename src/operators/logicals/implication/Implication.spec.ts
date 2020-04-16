@@ -1,5 +1,6 @@
 import Implication from "./Implication";
 import { FakeOperatorTrue, FakeOperatorFalse } from '../../../tests/utils';
+import { OperatorTypes } from '../../../operator/Operator';
 
 describe('Implication', () => {
     const trueExpression = new FakeOperatorTrue()
@@ -58,5 +59,18 @@ describe('Implication', () => {
             expect(spy1).toHaveBeenCalledWith(data);
             expect(spy2).toHaveBeenCalledWith(data);
         });
+    });
+
+    describe('default values', () => {
+        const operator = new Implication([])
+
+        it('the name is Implication', () => {
+            expect(operator.name).toEqual('Implication');
+        });
+
+        it('has correct LOGICAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.LOGICAL_OPERATOR);
+        });
+
     });
 });

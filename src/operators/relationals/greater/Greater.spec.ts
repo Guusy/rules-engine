@@ -1,4 +1,5 @@
 import Greater from "./Greater";
+import { OperatorTypes } from '../../../operator/Operator';
 
 describe('Greater operator', () => {
     const accessor = (object: any) => object
@@ -14,5 +15,18 @@ describe('Greater operator', () => {
         it('return false', () => {
             expect(operation.evaluate()).toBe(false);
         });
+    });
+
+    describe('default values', () => {
+        const operator = new Greater({ expectedValue: 0 , accessor})
+
+        it('the name is Greater', () => {
+            expect(operator.name).toEqual('Greater');
+        });
+
+        it('has RELATIONAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.RELATIONAL_OPERATOR);
+        });
+
     });
 });

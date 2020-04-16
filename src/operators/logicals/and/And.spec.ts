@@ -1,4 +1,4 @@
-import Operator from 'src/operator/Operator'
+import Operator, { OperatorTypes } from '../../../operator/Operator'
 import And from './And'
 import { FakeOperatorTrue, FakeOperatorFalse } from '../../../tests/utils';
 
@@ -32,6 +32,19 @@ describe('And', () => {
             expect(spy1).toHaveBeenCalledWith(data);
             expect(spy2).toHaveBeenCalledWith(data);
         });
+    });
+
+    describe('default values', () => {
+        const operator = new And([])
+
+        it('the name is And', () => {
+            expect(operator.name).toEqual('And');
+        });
+
+        it('has correct LOGICAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.LOGICAL_OPERATOR);
+        });
+
     });
 
 });

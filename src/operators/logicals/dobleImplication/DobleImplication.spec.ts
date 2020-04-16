@@ -1,5 +1,6 @@
 import DobleImplication from "./DobleImplication";
 import { FakeOperatorTrue, FakeOperatorFalse } from '../../../tests/utils';
+import { OperatorTypes } from '../../../operator/Operator';
 
 describe('DobleImplication', () => {
     const trueExpression = new FakeOperatorTrue()
@@ -59,4 +60,18 @@ describe('DobleImplication', () => {
             expect(spy2).toHaveBeenCalledWith(data);
         });
     });
+
+    describe('default values', () => {
+        const operator = new DobleImplication([])
+
+        it('the name is DobleImplication', () => {
+            expect(operator.name).toEqual('DobleImplication');
+        });
+
+        it('has correct LOGICAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.LOGICAL_OPERATOR);
+        });
+
+    });
+
 });

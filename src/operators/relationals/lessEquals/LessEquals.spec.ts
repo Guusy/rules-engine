@@ -1,4 +1,5 @@
 import LessEquals from "./LessEquals";
+import { OperatorTypes } from '../../../operator/Operator';
 
 describe('LessEquals operator', () => {
     const accessor = (object: any) => object
@@ -22,5 +23,18 @@ describe('LessEquals operator', () => {
         it('return true', () => {
             expect(operation.evaluate()).toBe(true);
         });
+    });
+
+    describe('default values', () => {
+        const operator = new LessEquals({ expectedValue: 0 , accessor})
+
+        it('the name is LessEquals', () => {
+            expect(operator.name).toEqual('LessEquals');
+        });
+
+        it('has RELATIONAL_OPERATOR type', () => {
+            expect(operator.type).toEqual(OperatorTypes.RELATIONAL_OPERATOR);
+        });
+
     });
 });

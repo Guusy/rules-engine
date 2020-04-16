@@ -1,4 +1,4 @@
-import Operator from '../../operator/Operator';
+import Operator, { OperatorTypes } from '../../operator/Operator';
 
 interface RelationalOperatorConstructor {
     expectedValue: any
@@ -6,11 +6,10 @@ interface RelationalOperatorConstructor {
 }
 
 export default class RelationalOperator extends Operator {
-    data: any;
-    expressions: Operator[] = [];
     accessor: (object: any) => any;
     expectedValue: any;
     currentValue: any;
+    type = OperatorTypes.RELATIONAL_OPERATOR
 
     constructor({ expectedValue, accessor }: RelationalOperatorConstructor) {
         super()
